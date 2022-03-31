@@ -81,10 +81,6 @@ export class TestDataDataSource extends DataSourceWithBackend<TestDataQuery> {
         }
 
         default:
-          if (target.alias) {
-            target.alias = this.templateSrv.replace(target.alias, options.scopedVars);
-          }
-
           backendQueries.push(target);
       }
     }
@@ -105,7 +101,12 @@ export class TestDataDataSource extends DataSourceWithBackend<TestDataQuery> {
   }
 
   resolveTemplateVariables(query: TestDataQuery, scopedVars: ScopedVars) {
-    query.labels = this.templateSrv.replace(query.labels!, scopedVars);
+    query.labels = this.templateSrv.replace(query.labels, scopedVars);
+    query.alias = this.templateSrv.replace(query.alias, scopedVars);
+    query.scenarioId = this.templateSrv.replace(query.scenarioId, scopedVars);
+    query.stringInput = this.templateSrv.replace(query.stringInput, scopedVars);
+    query.csvContent = this.templateSrv.replace(query.csvContent, scopedVars);
+    query.rawFrameContent = this.templateSrv.replace(query.rawFrameContent, scopedVars);
   }
 
   annotationDataTopicTest(target: TestDataQuery, req: DataQueryRequest<TestDataQuery>): Observable<DataQueryResponse> {

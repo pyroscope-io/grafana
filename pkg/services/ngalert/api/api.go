@@ -16,6 +16,7 @@ import (
 	"github.com/grafana/grafana/pkg/services/ngalert/models"
 	"github.com/grafana/grafana/pkg/services/ngalert/notifier"
 	"github.com/grafana/grafana/pkg/services/ngalert/schedule"
+	"github.com/grafana/grafana/pkg/services/ngalert/services"
 	"github.com/grafana/grafana/pkg/services/ngalert/state"
 	"github.com/grafana/grafana/pkg/services/ngalert/store"
 	"github.com/grafana/grafana/pkg/services/quota"
@@ -86,7 +87,7 @@ func (api *API) RegisterAPIEndpoints(m *metrics.API) {
 	api.RegisterAlertmanagerApiEndpoints(NewForkedAM(
 		api.DatasourceCache,
 		NewLotexAM(proxy, logger),
-		&AlertmanagerSrv{store: api.AlertingStore, mam: api.MultiOrgAlertmanager, secrets: api.SecretsService, log: logger, ac: api.AccessControl},
+		&AlertmanagerSrv{store: api.AlertingStore, mam: api.MultiOrgAlertmanager, secrets: api.SecretsService, log: logger, ac: api.AccessControl, configs: *services.NewAlertmanagerConfigService(api.SecretsService, api.AlertingStore, logger)},
 	), m)
 	// Register endpoints for proxying to Prometheus-compatible backends.
 	api.RegisterPrometheusApiEndpoints(NewForkedProm(

@@ -1217,7 +1217,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/api/provisioning/contactpoints/{ID}": {
       "delete": {
         "description": "Create a contactpoint",
         "consumes": [
@@ -4933,7 +4935,6 @@
       "x-go-package": "github.com/prometheus/alertmanager/api/v2/models"
     },
     "alertGroup": {
-      "description": "AlertGroup alert group",
       "type": "object",
       "required": [
         "alerts",
@@ -4956,6 +4957,8 @@
           "$ref": "#/definitions/receiver"
         }
       },
+      "x-go-name": "AlertGroup",
+      "x-go-package": "github.com/prometheus/alertmanager/api/v2/models",
       "$ref": "#/definitions/alertGroup"
     },
     "alertGroups": {
@@ -5084,6 +5087,7 @@
       "$ref": "#/definitions/Duration"
     },
     "gettableAlert": {
+      "description": "GettableAlert gettable alert",
       "type": "object",
       "required": [
         "labels",
@@ -5143,21 +5147,17 @@
           "x-go-name": "UpdatedAt"
         }
       },
-      "x-go-name": "GettableAlert",
-      "x-go-package": "github.com/prometheus/alertmanager/api/v2/models",
       "$ref": "#/definitions/gettableAlert"
     },
     "gettableAlerts": {
+      "description": "GettableAlerts gettable alerts",
       "type": "array",
       "items": {
         "$ref": "#/definitions/gettableAlert"
       },
-      "x-go-name": "GettableAlerts",
-      "x-go-package": "github.com/prometheus/alertmanager/api/v2/models",
       "$ref": "#/definitions/gettableAlerts"
     },
     "gettableSilence": {
-      "description": "GettableSilence gettable silence",
       "type": "object",
       "required": [
         "comment",
@@ -5210,15 +5210,16 @@
           "x-go-name": "UpdatedAt"
         }
       },
+      "x-go-name": "GettableSilence",
+      "x-go-package": "github.com/prometheus/alertmanager/api/v2/models",
       "$ref": "#/definitions/gettableSilence"
     },
     "gettableSilences": {
+      "description": "GettableSilences gettable silences",
       "type": "array",
       "items": {
         "$ref": "#/definitions/gettableSilence"
       },
-      "x-go-name": "GettableSilences",
-      "x-go-package": "github.com/prometheus/alertmanager/api/v2/models",
       "$ref": "#/definitions/gettableSilences"
     },
     "labelSet": {
@@ -5348,7 +5349,6 @@
       "x-go-package": "github.com/prometheus/alertmanager/api/v2/models"
     },
     "postableSilence": {
-      "description": "PostableSilence postable silence",
       "type": "object",
       "required": [
         "comment",
@@ -5389,6 +5389,8 @@
           "x-go-name": "StartsAt"
         }
       },
+      "x-go-name": "PostableSilence",
+      "x-go-package": "github.com/prometheus/alertmanager/api/v2/models",
       "$ref": "#/definitions/postableSilence"
     },
     "receiver": {

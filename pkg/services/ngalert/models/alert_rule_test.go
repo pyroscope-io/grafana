@@ -143,7 +143,7 @@ func TestPatchPartialAlertRule(t *testing.T) {
 			})
 		}
 	})
- 
+
 	t.Run("does not patch", func(t *testing.T) {
 		testCases := []struct {
 			name    string

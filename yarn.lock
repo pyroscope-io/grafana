@@ -20671,7 +20671,7 @@ __metadata:
     react-reverse-portal: ^2.0.1
     react-router-dom: ^5.2.0
     react-select: 5.2.2
-    react-select-event: ^5.1.0
+    react-select-event: 5.4.0
     react-split-pane: 0.1.92
     react-table: ^7.7.0
     react-test-renderer: 17.0.2
@@ -31106,6 +31106,15 @@ __metadata:
   peerDependencies:
     react: ">=16.8"
   checksum: 1a2e7006d4d56bfae8ff11dd5ec15e8049578864dfb2764652510eb0ce4af26a8949790a3732c4f7beb14bcb6500469ea18841b8cfc953e09828e4e4113922f0
+  languageName: node
+  linkType: hard
+
+"react-select-event@npm:5.4.0":
+  version: 5.4.0
+  resolution: "react-select-event@npm:5.4.0"
+  dependencies:
+    "@testing-library/dom": ">=7"
+  checksum: 244b1bdff5374b56a7d8156859a10dfd3191573ac419a8f91a64283cde48517df83c90f2df1891fc74bceb548d21ace9a9cb87e252bf2f83f78e305ea577af53
   languageName: node
   linkType: hard
 

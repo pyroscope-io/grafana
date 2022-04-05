@@ -179,6 +179,12 @@ func (api *API) authorize(method, path string) web.Handler {
 		http.MethodPost + "/api/v1/ngalert/admin_config",
 		http.MethodGet + "/api/v1/ngalert/alertmanagers":
 		return middleware.ReqOrgAdmin
+
+	case http.MethodGet + "/api/provisioning/contactpoints",
+		http.MethodPost + "/api/provisioning/contactpoints",
+		http.MethodPut + "/api/provisioning/contactpoints",
+		http.MethodDelete + "/api/provisioning/contactpoints/{ID}":
+		return middleware.ReqOrgAdmin
 	}
 
 	if eval != nil {

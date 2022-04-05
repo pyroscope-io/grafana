@@ -16,8 +16,8 @@ import (
 	"github.com/grafana/grafana/pkg/services/ngalert/metrics"
 	"github.com/grafana/grafana/pkg/services/ngalert/models"
 	"github.com/grafana/grafana/pkg/services/ngalert/notifier"
+	"github.com/grafana/grafana/pkg/services/ngalert/provisioning"
 	"github.com/grafana/grafana/pkg/services/ngalert/schedule"
-	"github.com/grafana/grafana/pkg/services/ngalert/services"
 	"github.com/grafana/grafana/pkg/services/ngalert/state"
 	"github.com/grafana/grafana/pkg/services/ngalert/store"
 	"github.com/grafana/grafana/pkg/services/quota"
@@ -75,7 +75,7 @@ type API struct {
 	StateManager         *state.Manager
 	SecretsService       secrets.Service
 	AccessControl        accesscontrol.AccessControl
-	ContactpointService  *services.EmbeddedContactPointService
+	ContactpointService  *provisioning.EmbeddedContactPointService
 }
 
 // RegisterAPIEndpoints registers API handlers

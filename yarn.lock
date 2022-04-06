@@ -6881,6 +6881,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pyroscope/flamegraph@npm:0.2.1-968-111d45e.0":
+  version: 0.2.1-968-111d45e.0
+  resolution: "@pyroscope/flamegraph@npm:0.2.1-968-111d45e.0"
+  dependencies:
+    true-myth: ^5.1.2
+  peerDependencies:
+    react: ">=16.14.0"
+  checksum: e31ea941c3e701660ae2ba3992b40bec947bfb27e3adc2b7c2d05f47dafede3cba82d59414ec37b9f6b9e24a3648762604a96f722c4ea99c0343eb91d691bef2
+  languageName: node
+  linkType: hard
+
 "@react-aria/button@npm:3.4.3":
   version: 3.4.3
   resolution: "@react-aria/button@npm:3.4.3"
@@ -20440,6 +20451,7 @@ __metadata:
     "@opentelemetry/semantic-conventions": 1.0.1
     "@pmmmwh/react-refresh-webpack-plugin": 0.5.4
     "@popperjs/core": 2.11.4
+    "@pyroscope/flamegraph": 0.2.1-968-111d45e.0
     "@react-aria/button": 3.4.3
     "@react-aria/dialog": 3.1.8
     "@react-aria/focus": 3.5.4
@@ -35167,6 +35179,13 @@ __metadata:
   version: 1.0.5
   resolution: "trough@npm:1.0.5"
   checksum: d6c8564903ed00e5258bab92134b020724dbbe83148dc72e4bf6306c03ed8843efa1bcc773fa62410dd89161ecb067432dd5916501793508a9506cacbc408e25
+  languageName: node
+  linkType: hard
+
+"true-myth@npm:^5.1.2":
+  version: 5.2.0
+  resolution: "true-myth@npm:5.2.0"
+  checksum: c4f26785b2ab6bc424672afbfb714317284df27034406b79a8c122adb613f1dbeb1408b32fa0291ca8d23b18a0b930d1e9af5f8bfacc87c33b6d29f1f4a76c55
   languageName: node
   linkType: hard
 

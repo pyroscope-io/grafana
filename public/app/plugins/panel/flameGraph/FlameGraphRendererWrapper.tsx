@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "@pyroscope/flamegraph/dist/index.css";
 const flamegraph = require('@pyroscope/flamegraph');
 
 const { FlamegraphRenderer } = flamegraph;

@@ -1,4 +1,3 @@
-//@ts-nocheck
 import {
   DataQueryRequest,
   DataQueryResponse,
@@ -6,11 +5,14 @@ import {
   DataSourceInstanceSettings,
   MutableDataFrame,
   FieldType,
+  DateTime,
 } from '@grafana/data';
 import { getBackendSrv, BackendSrv, getTemplateSrv } from '@grafana/runtime';
 
 import { defaultQuery, FlamegraphQuery, MyDataSourceOptions } from './types';
 import { deltaDiff } from './flamebearer';
+
+const formatTimestamp = (date: DateTime | string) => (typeof date === 'string' ? date.valueOf() : date.format('X'));
 
 export class DataSource extends DataSourceApi<FlamegraphQuery, MyDataSourceOptions> {
   constructor(instanceSettings: DataSourceInstanceSettings<MyDataSourceOptions>) {
@@ -55,8 +57,8 @@ export class DataSource extends DataSourceApi<FlamegraphQuery, MyDataSourceOptio
 
   async query(options: DataQueryRequest<FlamegraphQuery>): Promise<DataQueryResponse> {
     const { range } = options;
-    const from = range.raw.from.valueOf();
-    const until = range.raw.to.valueOf();
+    const from = formatTimestamp(range.raw.from);
+    const until = formatTimestamp(range.raw.to);
 
     const promises = options.targets.map((query) => {
       const nameFromVar = getTemplateSrv().replace(query.name);

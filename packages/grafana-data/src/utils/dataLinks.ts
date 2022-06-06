@@ -46,16 +46,17 @@ export function mapInternalLinkToExplore(options: LinkToExploreOptions): LinkMod
   const interpolatedPanelsState = interpolateObject(link.internal?.panelsState, scopedVars, replaceVariables);
   const title = link.title ? link.title : internalLink.datasourceName;
 
-  const query =
-    field.name === 'spanID' || field.name === 'span_id'
-      ? {
-          ...interpolatedQuery,
-          name: interpolatedQuery.query,
-          format: 'json',
-          from: range.raw.from,
-          to: range.raw.to,
-        }
-      : interpolatedQuery;
+  const internalSourceName = internalLink.datasourceName.toLowerCase();
+
+  const query = ['ppsplugin', 'pyroscope', 'pyroscope-datasource'].some((i) => i === internalSourceName)
+    ? {
+        ...interpolatedQuery,
+        name: interpolatedQuery.query,
+        format: 'json',
+        from: range.raw.from,
+        to: range.raw.to,
+      }
+    : interpolatedQuery;
 
   return {
     title: replaceVariables(title, scopedVars),
